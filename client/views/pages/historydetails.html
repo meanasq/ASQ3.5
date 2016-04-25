@@ -1,0 +1,142 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/myaccount">Dashboard</a></li>
+			<li><a href="#/history">History</a></li>
+			<li class="active">History Details</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent" data-ng-init="init(numbers)">
+
+				<header class="page-header">
+					<h1 class="page-title">History Details</span></h1>
+				</header>
+				
+				<div class="col-md-12">
+                
+	                <h3>
+	                	Your score is {{historyDetail[0].score}}% ({{historyDetail[0].total - historyDetail[0].report.wrong.length}}/{{historyDetail[0].total}})
+
+	                	<meter style="height: 20px; width: 30%;" low="60" high="80" max="100" optimum="100" value="{{historyDetail[0].score}}">{{historyDetail[0].score}}</meter>
+	                </h3>
+	                
+	                <br>
+	            
+	            	<div class="panel panel-default" ng-if="historyDetail[0].mode == 'Practice'">
+	            		<div class="panel-body">
+	            			<highchart config="practiceChartConfig"></highchart>	
+	            		</div>                	
+					</div>
+
+					<div class="panel panel-default" ng-if="historyDetail[0].mode == 'Exam'">
+	            		<div class="panel-body">
+	            			<highchart config="quizChartConfig"></highchart>
+	            		</div>                	
+					</div>
+					
+	            		            	
+	            	<md-button class="md-raised md-primary" ng-show="vis" ng-click="review()">Wrong Answers Review</md-button>
+	            	<md-button class="md-raised md-primary" ng-show="invis" ng-click="hide()">Hide Questions</md-button>	            	
+					<md-button class="md-raised md-primary green" ng-click="detailProgress(historyDetail[0].date)" >
+						View Details
+					</md-button>
+
+					<md-button class="md-raised md-primary brown" ng-click="showPrompt($event)">Chart Settings</md-button>
+
+	            	<div ng-if="showReview" class="top-margin col-md-12">
+		                <table ng-repeat="item in historyDetail[0].report.wrong" class="table" id="wrongList">
+		                	<tr>
+		                		<td colspan="2"><p><strong>Category :</strong> {{cate(item.category)}}</p></td>
+		                	</tr>	                	
+		                	<tr style="background: #f5f5f5;">
+		                		<td colspan="2"><p><strong>Question :</strong> {{item.content}}</p></td>
+		                	</tr>
+		                	<tr>
+		                		<td><p><strong>A :</strong> {{item.choices.A}}</p></td>
+		                		<td><p><strong>B :</strong> {{item.choices.B}}</p></td>
+		                	</tr>
+		                	<tr>
+		                		<td style="border-top: none;"><p><strong>C :</strong> {{item.choices.C}}</p></td>
+		                		<td style="border-top: none;"><p><strong>D :</strong> {{item.choices.D}}</p></td>
+		                	</tr>
+		                	<tr style="background: #fcf8e3;">
+		                		<td><p>Your choice was <strong style="color: red">{{item.answer? item.answer: 'Not Chosen'}}</strong></p></td>
+		                		<td><p>Correct answer is <strong style="color: green;">{{item.correctChoice}}</strong></p></td>
+		                	</tr>	                	
+		                </table>
+	            	</div>
+	            </div>
+
+				<div class="clearfix"></div>
+				<hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">							
+					<md-button class="md-raised md-warn" ng-href="#/history">Return</md-button>					
+				</div><!-- /row -->	
+				
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+	<div class="modal fade" id="changeHstr" role="dialogue" style="z-index:0">
+		<div class="modal-dialogue" style="padding-top:180px; padding-left:320px; padding-right:320px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4>Change Progress Chart Setting</h4>
+				</div>
+				<div class="modal-body" style="display:block;">
+				<!-- Popup Div Starts Here -->
+					<label for="settings"><strong>Number of historical scores on progress chart</strong><br></label>
+					<select ng-model="numbers" style="width:80px;" convert-to-number>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select><br>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" data-dismiss="modal" ng-click="init(numbers)" style="margin-right:270px">Save
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		</div>
+	</div>	<!-- /container -->	

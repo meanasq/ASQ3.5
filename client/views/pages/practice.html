@@ -1,0 +1,105 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/myaccount">Dashboard</a></li>			
+			<li class="active">Practice Mode</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+
+				<header class="page-header">
+					<h1 class="page-title">Practice Mode</span></h1>
+				</header>				
+
+				<p><em>After completeting the test click "Submit Answers" below.</em></p>
+				
+				<div class="col-md-12 top-margin">
+
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3>Q{{index + 1}}: {{questions[index].content}}</h3>
+							<hr>
+							<p class="text-muted">
+								
+								<input name="choices" id="choiceA" type="radio" ng-click="choose(index, 'A')" ng-checked="questions[index].answer=='A'">
+								<label for="choiceA">A: &nbsp;{{questions[index].choices.A}}</label>
+							</p>
+							<p class="text-muted">
+								<input name="choices" id="choiceB" type="radio" ng-click="choose(index, 'B')" ng-checked="questions[index].answer=='B'">
+								<label for="choiceB">B: &nbsp;{{questions[index].choices.B}}</label>
+							</p>
+							<p class="text-muted">
+								<input name="choices" id="choiceC" type="radio" ng-click="choose(index, 'C')" ng-checked="questions[index].answer=='C'">
+								<label for="choiceC">C: &nbsp;{{questions[index].choices.C}}</label>
+							</p>
+							<p class="text-muted">
+								<input name="choices" id="choiceD" type="radio" ng-click="choose(index, 'D')" ng-checked="questions[index].answer=='D'">
+								<label for="choiceD">D: &nbsp;{{questions[index].choices.D}}</label>								
+							</p>
+
+							<hr>									
+
+							<p>
+								<span style="float: left;">
+									<md-button class="md-primary" ng-click="previous()" ng-disabled="index == 0">
+										<i class="fa fa-chevron-left"></i>  Previous
+									</md-button>
+								</span>
+
+								<span style="float: right;">
+									<md-button class="md-primary text-right" ng-click="next()" ng-disabled="index == questions.length - 1">
+										Next  <i class="fa fa-chevron-right"></i>
+									</md-button>
+								</span>
+							</p>
+							
+						</div>
+					</div>
+
+				</div>
+
+				<div class="clearfix"></div>
+				<hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">
+					<md-button class="md-raised md-warn" ng-click="quit($event)">Quit</md-button></p>											
+					<md-button class="md-raised md-primary" ng-click="submit()">Submit Answers</md-button></p>
+				</div><!-- /row -->				
+				
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->

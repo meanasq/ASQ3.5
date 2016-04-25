@@ -1,0 +1,36 @@
+process.env.port = 5137
+process.env.encKey = esFTSM34OSY9VexbRMJ2Jtnki1fYoGRZhQFOz0V6UZE=
+process.env.sigKey = TRs1JfsxMcwdavI0dDYmcJeBr7SyEBPn1Ly1/EQCNvnAx/jLCwo0oHv9m+bjykFydhStlGrCbwZvoZwPGNjytw==
+
+#mongodb.connect.url = mongodb://localhost:27017/Quiz
+mongodb.connect.url = mongodb://admin:asq123@ds011820.mlab.com:11820/dbmeanasq
+
+model.ep 	= epmodels
+model.gk 	= gkmodels
+model.sqm 	= sqmmodels
+model.pm 	= pmmodels
+model.mam 	= mammodels
+model.svv 	= svvmodels
+model.scm 	= scmmodels
+
+app.email.transport = SMTP
+#SMTP.service 		= Gmail
+SMTP.service.user 		= bigbangASQ@gmail.com
+SMTP.service.passwd 	= Qualitycoders1
+
+app.email.from 		= bigbangASQ@itu.edu
+
+app.email.registrationTem 	= registration
+app.email.support_template 	= support_template
+app.email.changePwdTem 		= changePassword
+app.email.resetPwdTem 		= resetPasswd
+app.email.resetConfirmTem 	= resetPasswdConfirm
+
+app.email.subject 					= Congratulations!!.MEAN ASQ Exam Portal Registration Successful.
+app.email.subjectChgPwd 			= Your Password has been changed Successfully.
+app.email.subjectResetPwd 			= Password Reset request from ASQ Portal.
+app.email.subjectConfirmResetPwd 	= Your password has been changed
+
+app.email.body.text		= Congratulations!!.You have been successfully registered into MEAN ASQ Exam Portal.
+app.email.body.html 	= <p>Congratulations!!.You have been successfully registered into MEAN ASQ Exam Portal.</p>
+app.email.body.footer 	= <p>This e-mail and any files transmitted with it may contain privileged or confidential information.</p>

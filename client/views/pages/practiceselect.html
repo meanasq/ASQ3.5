@@ -1,0 +1,113 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/myaccount">Dashboard</a></li>
+			<li class="active">Practice Selection</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+
+				<header class="page-header">
+					<h1 class="page-title">Practice Selection</span></h1>
+				</header>
+				
+				<div class="col-md-12">
+
+					<h4>SELECT Categories and SET Number of Questions for Your CSQE Practice.</h4>
+					<br>
+
+					<table class="table table-hover">
+                		<thead>
+    						<tr class="table-head-bg">
+      							<th>#</th>
+      							<th>Categories</th>
+      							<th>No.of Questions</th>
+    						</tr>
+  						</thead>
+                		
+                		<tbody>
+							<tr>
+			                    <td><input ng-model="GK" type="checkbox"></td>
+			                    <td>Software General Knowledge</td>
+			                    <td><input ng-model="GKValue" type="number" min="1" max="18">&nbsp;&nbsp;(1-18)</td>
+			                </tr>
+			                <tr>
+			                    <td><input ng-model="EP" type="checkbox"></td>
+			                    <td>Software Engineering Processes</td>
+			                    <td><input ng-model="EPValue" type="number" min="1" max="28">&nbsp;&nbsp;(1-28)</td>
+			                </tr>
+			                <tr>
+			                    <td><input ng-model="MA" type="checkbox"></td>
+			                    <td>Software Metrics & Analysis</td>
+			                    <td><input ng-model="MAValue" type="number" min="1" max="35">&nbsp;&nbsp;(1-35)</td>
+			                </tr>
+			                <tr>
+			                    <td><input ng-model="PM" type="checkbox"></td>
+			                    <td>Software Project Management</td>
+			                    <td><input ng-model="PMValue" type="number" min="1" max="22">&nbsp;&nbsp;(1-22)</td>
+			                </tr>
+			                <tr>
+			                    <td><input ng-model="SCM" type="checkbox"></td>
+			                    <td>Software Configuration Management</td>
+			                    <td><input ng-model="SCMValue" type="number" min="1" max="29">&nbsp;&nbsp;(1-29)</td>
+			                </tr>
+			                <tr>
+			                    <td><input ng-model="SQM" type="checkbox"></td>
+			                    <td>Software Quality Management</td>
+			                    <td><input ng-model="SQMValue" type="number" min="1" max="30">&nbsp;&nbsp;(1-30)</td>
+			                </tr>
+			                <tr>
+			                    <td><input ng-model="SVV" type="checkbox"></td>
+			                    <td>Software Verification & Validation</td>
+			                    <td><input ng-model="SVVValue" type="number" min="1" max="21">&nbsp;&nbsp;(1-21)</td>
+			                </tr>
+						</tbody>
+
+            		</table>
+				</div>
+
+				<div class="clearfix"></div>
+				<hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">							
+					<md-button class="md-raised md-warn" ng-href="#/myaccount">Cancel</md-button>
+					<md-button ng-click="submit()" class="md-raised md-primary" ng-disabled="selectionError">Submit</md-button>
+				</div><!-- /row -->				
+				
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->

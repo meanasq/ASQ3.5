@@ -1,0 +1,74 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li class="active">User Login</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-12 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Sign in</h1>
+				</header>
+				
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">Sign in to your account</h3>							
+							<hr>
+							
+							<ng-form name="loginForm">
+								<div class="top-margin">
+									<label>Email <span class="text-danger">*</span></label>
+									<input type="text" class="form-control" ng-model="user.email" ng-change="testLoginName()" ng-required="true" autofocus>
+									<span ng-show="loginEmailErr && user.email != undefined" style="color: red; font-size: 12px;">Invalid email address</span>
+								</div>
+								<div class="top-margin">
+									<label>Password <span class="text-danger">*</span></label>
+									<input type="password" class="form-control" ng-model="user.password" ng-keydown="pressEnter($event,user)" ng-change="testPassword()" ng-required="true">
+									<span ng-show="passwordShort && user.password != undefined" style="color: red; font-size: 12px;">Password must be at least 6 characters</span>
+								</div>
+
+								<hr>
+
+								<div class="row">
+									<div class="col-lg-6">
+										<b><a href="#/forgotPassword">Forgot password?</a></b>
+									</div>
+									<div class="col-lg-6 text-right">
+										<md-button class="md-raised md-primary" ng-disabled="FormError || loginForm.$invalid" ng-click="login(user)">Sign in</md-button>
+									</div>
+								</div>
+							</ng-form>
+						</div>
+					</div>
+
+				</div>
+				
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">Register new account</h3>
+							<hr>
+							<p class="text-center text-muted">Don't have an account yet? Create one now<br>
+							<span style="font-size: 24px; font-weight: bold; color: green; padding: 12px 0; display: block;">IT'S FREE</span>
+							Sign up for a free account to gain access to the application. When you register you will get 3 months of Full Access to the application. Your information will not be shared with anyone else.
+							</p>
+							<hr>
+							<a class="btn btn-action btn-block green" href="#/register" style="margin-bottom: 8px;">Create an account</a>
+														
+						</div>
+					</div>
+
+				</div>
+				
+			</article>
+			<!-- /Article -->
+
+		</div>
+	</div>	<!-- /container -->

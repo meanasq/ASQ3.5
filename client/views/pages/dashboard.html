@@ -1,0 +1,118 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li class="active">Dashboard</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Welcome! <span>{{currentUser.firstName}} {{currentUser.lastName}}</span></h1>
+				</header>
+				
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">Exam Mode</h3>
+							<hr>
+							<ul>
+								<li>Real time Virtual Exam</li>
+								<li>2hrs Time Limit</li>
+								<li>80 Questions to answer</li>
+								<li>All Categories included</li>
+							</ul>
+							<hr>													
+							<p class="text-center"><md-button class="md-raised md-primary green" ng-href="#/examinfo">Start Exam</md-button></p>
+						</div>
+					</div>
+				</div>	
+
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">Practice Mode</h3>
+							<hr>
+							<ul>
+								<li>Practice CSQE</li>
+								<li>No Time Limit</li>								
+								<li>Choose categories to practice</li>
+								<li>Choose no.of Questions per category</li>
+							</ul>
+							<hr>													
+							<p class="text-center"><md-button class="md-raised md-primary" ng-href="#/practice">Practice Test</md-button></p>
+						</div>
+					</div>
+				</div>	
+				
+				<div class="clearfix"></div>
+				
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">History</h3>
+							<hr>
+							<ul>
+								<li>View all History ( Exam & Practice ) </li>
+								<li>View progession in Chart</li>								
+								<li>View wrong answer details</li>
+								<li>View scoring per category</li>
+							</ul>
+							<hr>													
+							<p class="text-center"><md-button class="md-raised md-primary brown" ng-href="#/history">View History</md-button></p>
+						</div>
+					</div>
+				</div>	
+
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">Account Management</h3>
+							<hr>							
+							<ul>
+								<li><a href="#/profile">Edit Profile</a></li>
+								<li><a href="#/changepassword">Change Password</a></li>
+								<li><a href="#/help">Help & FAQs</a></li>
+								<li><a href="#/support">Support</a></li>
+							</ul>
+							<hr>
+							<p class="text-center height"><md-button class="md-raised md-warn" ng-click="logout()">logout</md-button></p>
+						</div>
+					</div>
+				</div>
+
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->

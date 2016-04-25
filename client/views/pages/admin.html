@@ -1,0 +1,87 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>			
+			<li class="active">Admin Dashboard</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Welcome Admin! <span>{{currentUser.firstName}} {{currentUser.lastName}}</span></h1>
+				</header>
+				
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">Questions Management</h3>
+							<hr>
+							<ul>
+								<li>Add Questions</li>
+								<li>Edit Questions</li>
+								<li>Delete Questions</li>
+							</ul>
+							<hr>													
+							<p class="text-center"><md-button ng-href="#/questionlist" class="md-raised md-primary">Manage Questions</md-button></p>
+						</div>
+					</div>
+				</div>	
+
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">User Management</h3>
+							<hr>
+							<ul>
+								<li>Activate User Accounts</li>
+								<li>Edit User Accounts</li>
+								<li>Delete User Accounts</li>
+							</ul>
+							<hr>													
+							<p class="text-center"><md-button ng-href="#/userlist" class="md-raised md-primary green">Manage Users</md-button></p>
+						</div>
+					</div>
+				</div>	
+				
+				<div class="clearfix"></div>
+				<hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">
+					<md-button class="md-raised md-warn" ng-href="#/adminHelp">Help</md-button></p>					
+				</div><!-- /row -->		
+
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->

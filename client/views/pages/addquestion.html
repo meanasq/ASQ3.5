@@ -1,0 +1,103 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/admin">Admin Dashboard</a></li>
+			<li><a href="#/questionlist">Manage Questions</a></li>
+			<li class="active">Add Question</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+
+				<header class="page-header">
+					<h1 class="page-title">Add Question</span></h1>
+					<p style="color:red;"><em>* indicates Mandatory Fields</em></p>
+				</header>
+
+			<ng-form name="adminQuestion">
+				<p class="text-muted"><em>Enter the choices one below the other</em></p>								
+				
+				<div class="col-md-12 top-margin">
+					<div class="panel panel-default">
+						<p class="panel-body">
+							<label for="addQueCat">Category <span class="text-danger">*</span></label>									
+							<select id="addQueCat" ng-model="addQueCat" class="form-control" ng-required="true">
+								<option value="gk">GKModel</option>
+								<option value="sqm">SQMModel</option>
+								<option value="ep">EPModel</option>
+								<option value="pm">PMModel</option>
+								<option value="mam">MAModel</option>
+								<option value="SVV">SVVModel</option>
+								<option value="scm">SCMModel</option>
+							</select>
+						</p>
+
+						<hr>
+
+						<div class="panel-body">
+
+							<p>
+								<label for="addCont">Question Desc <span class="text-danger">*</span></label>
+								<textarea id="addCont" rows="2" class="form-control"  ng-model="addQueContent" placeholder="Enter Question Description" ng-required="true"></textarea>
+							</p>
+
+							<p>
+								<label for="addCont">Choices <span class="text-danger">*</span></label>
+								<textarea id="addCho" rows="5" ng-model="addQueChoice" class="form-control" placeholder="Enter Question Choices" ng-blur="testQueChoice();" ng-required="true"></textarea>
+							</p>
+
+							<p>
+								<label for="addCorCh">Correct Choice <span class="text-danger">*</span></label>
+								<input id="addCorCh" type="text" ng-model="addQueCorChoice" class="form-control" placeholder="Enter Correct Choice" minlength="1" maxlength="1" ng-change="testAddCorrectChoice()" ng-required="true">
+								<span ng-show="addCorrectChoiceErr" style="color:red; font-size:12px;">invalid correct choice</span>
+							</p>
+
+						</div>
+						
+						<hr>
+
+						<div layout-align="center" layout="row">							
+							<md-button class="md-raised md-warn" ng-href="#/questionlist">Return</md-button>
+							<md-button class="md-raised md-primary" ng-click="addQuestion()" ng-disabled="adminQuestion.$invalid || addCorrectChoiceErr">Save</md-button>
+						</div><!-- /row -->
+						<br>
+					</div>
+				</div>
+				
+			</ng-form>
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->

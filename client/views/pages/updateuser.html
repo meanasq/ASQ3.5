@@ -1,0 +1,164 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="/">Home</a></li>
+			<li><a href="#/admin">Admin Dashboard</a></li>
+			<li><a href="#/userlist">Manage Users</a></li>
+			<li class="active">Edit User</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Edit User : <span>{{user.firstName}} {{user.lastName}}</span></h1>
+					<p style="color:red;"><em>* indicates Mandatory Fields</em></p>
+				</header>
+
+			<ng-form name="userUpdate">
+				
+				<div class="col-md-12">
+					<h4 class="text-center" style="color: #356aa0;"><strong>LOGIN DETAILS</strong></h4><br>
+																
+					<div class="col-sm-4 text-right"><label>Email</label>						
+					</div>
+
+					<div class="col-sm-4">	
+						<input id="email" type="text" ng-model="user.email" class="form-control" disabled>					
+					</div>
+					
+					<div class="col-sm-4"><p><em>Can not edit Registered Email</em></p></div>
+				</div> <!-- /row -->
+				
+				<div class="clearfix"></div>
+				<br><hr>
+		
+				<div class="col-md-12">
+					<h4 class="text-center" style="color: #356aa0;"><strong>PERSONAL DETAILS</strong></h4><br>
+					
+					<div class="col-sm-4">
+						<label>First Name <span class="text-danger">*</span></label>
+						<input id="fName" type="text" ng-model="user.firstName" class="form-control" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" data-original-title="Please use only letters for names" ng-required="true">
+					</div>
+					
+					<div class="col-sm-4">
+						<label>Last Name <span class="text-danger">*</span></label>
+						<input id="lName" type="text" ng-model="user.lastName" class="form-control" placeholder="Last Name" data-toggle="tooltip1" data-placement="bottom" data-original-title="Please use only letters for names" ng-required="true">
+					</div>
+					
+					<div class="col-sm-4">
+						<label>Date of Birth <span class="text-danger">*</span></label>
+						<input id="dob" type="text" class="form-control" ng-model="user.birthDate" placeholder="MM/DD/YYYY" readonly jqdatepicker ng-required="true">
+					</div>
+				</div> <!-- /row -->
+				
+				<div class="clearfix"></div> <br>
+				
+				<div class="col-md-12 top-margin">			
+					<div class="col-sm-6">
+						<label>Address Line 1 <span class="text-danger">*</span></label>
+						<input type="text" ng-model="user.address1" class="form-control" placeholder="Building / Street" ng-required="true">
+					</div>
+					
+					<div class="col-sm-6">
+						<label>Address Line 2</label>
+						<input type="text" ng-model="user.address2" class="form-control" placeholder="(optional)">
+					</div>
+				</div> <!-- /row -->
+
+				<div class="clearfix"></div> <br>
+
+				<div class="col-md-12 top-margin">			
+					<div class="col-sm-4">
+						<label>City <span class="text-danger">*</span></label>
+						<input type="text" id="city" ng-model="user.city" class="form-control" placeholder="City" ng-blur="testCity()" data-toggle="tooltip3" data-placement="bottom" data-original-title="Please use only letters." ng-required="true">
+					</div>
+
+					<div class="col-sm-4">
+						<label>State <span class="text-danger">*</span></label>
+						<select id="state" ng-model="user.state" class="form-control" ng-options="state.abbreviation as state.name for state in states" ng-required="true">
+					</select>
+					</div>
+
+					<div class="col-sm-4">
+						<label>Zip Code <span class="text-danger">*</span></label>
+						<input type="text" id="zip" ng-model="user.zipcode" class="form-control" placeholder="Zip Code" ng-change="testZipCode()" data-toggle="tooltip2" data-placement="bottom" data-original-title="Please use only numbers" ng-required="true">
+		                <span ng-show="zipCodeErr && user.zipcode != ''" style="color:red; font-size:12px;">Please enter valid Zipcode.</span>
+					</div>
+				</div> <!-- /row -->
+
+				<div class="clearfix"></div> 
+				<br><hr>
+
+				<div class="col-md-12">			
+					<h4 class="text-center" style="color: #356aa0;"><strong>ACCOUNT SETTINGS</strong></h4><br>
+
+					<div class="col-sm-4">
+						<label>Expiry Date <span class="text-danger">*</span></label>
+						<input id="exp" type="text" class="form-control" ng-model="user.expiryDate" placeholder="MM/DD/YYYY" readonly jqdatepicker ng-required="true">
+					</div>
+
+					<div class="col-sm-4">
+						<label>Role</label>
+						<select id="role" ng-model="user.role" class="form-control">
+							<option value="admin">Admin</option>
+							<option value="user">User</option>
+						</select>
+					</select>
+					</div>
+
+					<div class="col-sm-4">
+						<label>Active</label>
+						<select id="act" ng-model="user.activeIn" class="form-control">
+							<option value="Y">Yes</option>
+							<option value="N">No</option>
+						</select>
+					</div>
+					
+				</div> <!-- /row -->
+
+				<div class="clearfix"></div>
+				<br><hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">							
+					<md-button class="md-raised md-warn" ng-href="#/userlist">Return</md-button>
+					<md-button ng-click="saveUser(user)" class="md-raised md-primary green" ng-disabled="zipCodeErr || userUpdate.$invalid">Save</md-button>
+					<md-button ng-click="deleteUser($event, user)" class="md-raised md-primary">Delete</md-button>
+				</div><!-- /row -->	
+
+			</ng-form>			
+
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->

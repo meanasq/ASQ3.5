@@ -1,0 +1,135 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/admin">Admin Dashboard</a></li>
+			<li class="active">Manage Questions</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+
+				<header class="page-header">
+					<h1 class="page-title">Manage Questions</span></h1>
+				</header>
+
+				<div class="form-group">			
+					<table>
+						<tr valign="middle">							
+							<td><label style="margin-right: 5px;">Choose Category</label></td>
+
+							<td>								
+								<select id="searchCat" ng-model="currentUser.searchCat" class="form-control" ng-change="disableSearch()">									
+									<option value="GKModel">GKModel</option>
+									<option value="SQMModel">SQMModel</option>
+									<option value="EPModel">EPModel</option>
+									<option value="PMModel">PMModel</option>
+									<option value="MAModel">MAModel</option>
+									<option value="SVVModel">SVVModel</option>
+									<option value="SCMModel">SCMModel</option>
+								</select>
+							</td>
+
+							<td>
+								<md-button class="md-fab md-mini md-primary" title="Search" aria-label="Search" ng-disabled="wrong" ng-click="searchQuestions(currentUser)">
+        							<i class="fa fa-search"></i>
+      							</md-button>
+      						</td>
+						</tr>
+					</table>
+				</div>
+				
+
+				<div class="col-md-12" id="db-data-list">
+
+					<loading></loading>
+
+					<div class="panel panel-default" ng-repeat="question in partialQuestions">
+						<div class="panel-body text-center">
+							
+							<div class="col-sm-1">
+								<label>Category</label>
+								<p class="db-data">{{question.category}}</p>
+							</div>
+
+							<div class="col-sm-8">
+								<label>Question</label>
+								<p class="db-data">{{question.content}}</p>
+							</div>
+
+							<div class="col-sm-1">
+								<label>Answer</label><br>
+								<p class="db-data">{{question.correctChoice}}</p>
+							</div>
+						
+							<div class="col-sm-2">
+								<label>Action</label>
+								<p><md-button class="md-icon-button md-primary" title="Edit" aria-label="Edit" ng-click="editQuestion(question)">
+	       							<i class="fa fa-pencil-square-o"></i>
+	   							</md-button>
+
+	   							<md-button class="md-icon-button md-warn" title="Delete" aria-label="Delete" ng-click="deleteQuestion($event,question)">
+	       							<i class="fa fa-trash"></i>
+	   							</md-button></p>
+							</div>
+							
+						</div>
+					</div> <!-- Panel -->
+
+					<h4 align="center" ng-show="partialQuestions.length <= 0 && !loading" style="color:red">
+						No Questions available in ASQ for your Search
+					</h4>
+
+					<p class="text-center">
+						<pagination 
+							ng-model="currentPage" total-items="allQuestions.length"
+							max-size="maxSize"  boundary-links="true"
+							ng-show="partialQuestions.length > 0">
+						</pagination>
+					</p>
+
+				</div>
+
+				<div class="clearfix"></div>
+				<hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">							
+					<md-button class="md-raised md-warn" ng-href="#/admin">Return</md-button>
+					<md-button class="md-raised md-primary" ng-href="#/addquestion">Add Question</md-button>
+				</div><!-- /row -->				
+				
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->

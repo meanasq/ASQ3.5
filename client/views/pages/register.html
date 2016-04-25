@@ -1,0 +1,119 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="/">Home</a></li>
+			<li class="active">Create account</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-12 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Create New Account</h1>
+					<p style="color:red;"><em>* indicates Mandatory Fields</em></p>
+				</header>
+				
+				<ng-form name="regForm">
+					<div class="col-md-12">
+						<h4 class="text-center" style="color: #356aa0;"><strong>LOGIN DETAILS</strong></h4><br>
+							
+						<div class="col-sm-4">
+							<label>Email <span class="text-danger">*</span></label>
+							<input type="text" ng-model="user.email" class="form-control" placeholder="Email Address" ng-change="testUsername()" ng-required="true">
+							<span ng-show="usernameErr && user.email != ''" style="color:red; font-size:12px;">invalid email address</span>
+						</div>
+						
+						<div class="col-sm-4">
+							<label>Password <span class="text-danger">*</span></label>
+							<input type="password" ng-model="user.passwd1" class="form-control" placeholder="Password" ng-change="testPwdLength()" ng-required="true">
+							<span ng-show="passwordShort && user.passwd1 != ''" style="color:red; font-size:12px;">password must be at least 6 characters</span>
+						</div>
+
+						<div class="col-sm-4">
+							<label>Confirm Password <span class="text-danger">*</span></label>
+							<input type="password" ng-model="user.passwd2" class="form-control" placeholder="Confirm Password" ng-change="testPwdMatch()" ng-required="true">
+	    					<span ng-show="passwordErr && user.passwd2 != ''" style="color:red; font-size:12px;">password doesn't match</span>
+						</div>
+					</div> <!-- /row -->
+					
+					<div class="clearfix"></div>
+					<br><hr>
+			
+					<div class="col-md-12">
+						<h4 class="text-center" style="color: #356aa0;"><strong>PERSONAL DETAILS</strong></h4><br>
+						
+						<div class="col-sm-4">
+							<label>First Name <span class="text-danger">*</span></label>
+							<input id="fName" type="text" ng-model="user.firstName" class="form-control" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" data-original-title="Please use only letters for names" ng-required="true">
+						</div>
+						
+						<div class="col-sm-4">
+							<label>Last Name <span class="text-danger">*</span></label>
+							<input id="lName" type="text" ng-model="user.lastName" class="form-control" placeholder="Last Name" data-toggle="tooltip1" data-placement="bottom" data-original-title="Please use only letters for names" ng-required="true">
+						</div>
+						
+						<div class="col-sm-4">
+							<label>Date of Birth <span class="text-danger">*</span></label>
+							<input id="dob" type="text" class="form-control" ng-model="user.birthDate" placeholder="MM/DD/YYYY" jqdatepicker ng-required="true" readonly >
+						</div>
+					</div> <!-- /row -->
+					
+					<div class="clearfix"></div> <br>
+					
+					<div class="col-md-12 top-margin">			
+						<div class="col-sm-6">
+							<label>Address Line 1 <span class="text-danger">*</span></label>
+							<input type="text" ng-model="user.address1" class="form-control" placeholder="Building / Street" ng-required="true">
+						</div>
+						
+						<div class="col-sm-6">
+							<label>Address Line 2</label>
+							<input type="text" ng-model="user.address2" class="form-control" placeholder="(optional)">
+						</div>
+					</div> <!-- /row -->
+
+					<div class="clearfix"></div> <br>
+
+					<div class="col-md-12 top-margin">			
+						<div class="col-sm-4">
+							<label>City <span class="text-danger">*</span></label>
+							<input type="text" id="city" ng-model="user.city" class="form-control" placeholder="City" ng-blur="testCity()" data-toggle="tooltip3" data-placement="bottom" data-original-title="Please use only letters." ng-required="true">
+						</div>
+
+						<div class="col-sm-4">
+							<label>State <span class="text-danger">*</span></label>
+							<select id="state" ng-model="selectedState" class="form-control" ng-options="state.abbreviation as state.name for state in states" ng-required="true">
+						</select>
+						</div>
+
+						<div class="col-sm-4">
+							<label>Zip Code <span class="text-danger">*</span></label>
+							<input type="text" id="zip" ng-model="user.zipcode" class="form-control" placeholder="Zip Code" ng-change="testZipCode()" data-toggle="tooltip2" data-placement="bottom" data-original-title="Please use only numbers" ng-required="true">
+			                <span ng-show="zipCodeErr && user.zipcode != undefined" style="color:red; font-size:12px;">Please enter valid Zipcode.</span>
+						</div>
+					</div> <!-- /row -->
+
+				</ng-form>
+
+				<div class="clearfix"></div>
+				<br><hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">							
+						<md-button class="md-raised md-warn" ng-click="showConfirm($event)">Clear</md-button>
+						<md-button ng-click="register(user)" class="md-raised md-primary" ng-disabled="FormError || regForm.$invalid">Register</md-button>
+				</div><!-- /row -->
+
+				<div class="clearfix"></div>
+
+				<br>
+				<p class="text-muted text-center">Already have an account? <a href="#/login">Login</a></p>
+
+			</article>
+			<!-- /Article -->
+
+		</div>
+	</div>	<!-- /container -->

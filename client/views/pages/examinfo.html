@@ -1,0 +1,76 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/myaccount">Dashboard</a></li>
+			<li class="active">Exam</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+
+				<header class="page-header">
+					<h1 class="page-title">Exam Mode</span></h1>
+				</header>
+				
+				<div class="col-md-12" data-ng-init="getCerts()">
+
+					<h3>Welcome to the CSQE Exam</h3>	
+					<p>Exam Mode Conditions and Instructions are listed Below</p>
+					
+					<h4>Instructions</h4>
+					<ul>
+						<li>You will have to 80 questions to answer</li>
+						<li>2 hours Time Limit</li>
+						<li>All categories included in test</li>
+						<li>No Negative Marking</li>
+						<li>Quiting Exam will submit the test including un-answered questions</li>
+						<li>Changing page in the middle of the exam will submit the test</li>
+						<li>Exam will submit when Time Expires</li>						
+						<li>You can skip questions and return to answer later using jump list</li>
+					</ul>					
+				</div>
+
+				<div class="clearfix"></div>
+				<hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">							
+					<md-button class="md-raised md-warn" ng-href="#/myaccount">Cancel</md-button>
+					<md-button ng-click="exam()" class="md-raised md-primary">Start</md-button>
+				</div><!-- /row -->				
+				
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->

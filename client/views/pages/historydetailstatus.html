@@ -1,0 +1,207 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/myaccount">Dashboard</a></li>
+			<li><a href="#/history">History</a></li>
+			<li class="active">History Detail Status</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent" data-ng-init="init(numbers)">
+
+				<header class="page-header">
+					<h1 class="page-title">History Detail Expanded</span></h1>
+				</header>
+				
+				<div class="col-md-12">
+	                <table class="table table-striped">
+	                	<thead>
+	                		<tr>
+	                    		<th colspan="4" class="table-head-bg text-center">
+	                    			<h4><strong>SCORES IN EACH CATEGORIES</strong></h4>
+	                    		</th>
+	                		</tr>
+	                	</thead>
+	                	
+	                	<tbody>
+	                		<tr ng-if="historyProgressDetail[0].gkNumber">
+	                    		<td>
+	                    			<h4>Software General Knowledge</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].gkNumber - historyProgressDetail[0].gkWrong}}/{{historyProgressDetail[0].gkNumber}}</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].report.gkScore}}%</h4>
+	                    		</td>
+	                    		<td>
+	                    			<meter style="height: 18px; width: 160px;" low="60" high="80" max="100" optimum="100" value="{{historyProgressDetail[0].report.gkScore}}">{{historyProgressDetail[0].report.gkScore}}</meter>
+	                    		</td>
+	                		</tr>
+	                		
+	                		<tr ng-if="historyProgressDetail[0].epNumber">
+	                    		<td>
+	                    			<h4>Software Engineering Processes</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].epNumber - historyProgressDetail[0].epWrong}}/{{historyProgressDetail[0].epNumber}}</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].report.epScore }}%</h4>
+	                    		</td>
+	                    		<td>
+	                    			<meter style="height: 18px; width: 160px;" low="60" high="80" max="100" optimum="100" value="{{historyProgressDetail[0].report.epScore }}">{{historyProgressDetail[0].report.epScore }}</meter>
+	                    		</td>
+	                		</tr>
+	                		
+	                		<tr ng-if="historyProgressDetail[0].maNumber">
+	                    		<td>
+	                    			<h4>Software Metrics & Analysis</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].maNumber - historyProgressDetail[0].maWrong}}/{{historyProgressDetail[0].maNumber}}</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].report.maScore }}%</h4>
+	                    		</td>
+	                    		<td>
+	                    			<meter style="height: 18px; width: 160px;" low="60" high="80" max="100" optimum="100" value="{{historyProgressDetail[0].report.maScore }}">{{historyProgressDetail[0].report.maScore }}</meter>
+	                    		</td>
+	                		</tr>
+	                		
+	                		<tr ng-if="historyProgressDetail[0].pmNumber">
+								<td>
+									<h4>Software Project Management</h4>
+								</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].pmNumber - historyProgressDetail[0].pmWrong}}/{{historyProgressDetail[0].pmNumber}}</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].report.pmScore }}%</h4>
+	                    		</td>
+	                    		<td>
+	                    			<meter style="height: 18px; width: 160px;" low="60" high="80" max="100" optimum="100" value="{{historyProgressDetail[0].report.pmScore }}">{{historyProgressDetail[0].report.pmScore }}</meter>
+	                    		</td>
+	                		</tr>
+	                		
+	                		<tr ng-if="historyProgressDetail[0].scmNumber">
+								<td>
+									<h4>Software Configuration Management</h4>
+								</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].scmNumber - historyProgressDetail[0].scmWrong}}/{{historyProgressDetail[0].scmNumber}}</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].report.scmScore }}%</h4>
+	                    		</td>
+	                    		<td>
+	                    			<meter style="height: 18px; width: 160px;" low="60" high="80" max="100" optimum="100" value="{{historyProgressDetail[0].report.scmScore }}">{{historyProgressDetail[0].report.scmScore }}</meter>
+	                    		</td>
+	                		</tr>
+	                		
+	                		<tr ng-if="historyProgressDetail[0].sqmNumber">
+	                    		<td>
+	                    			<h4>Software Quality Management</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].sqmNumber - historyProgressDetail[0].sqmWrong}}/{{historyProgressDetail[0].sqmNumber}}</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].report.sqmScore}}%</h4>
+	                    		</td>
+	                    		<td>
+	                    			<meter style="height: 18px; width: 160px;" low="60" high="80" max="100" optimum="100" value="{{historyProgressDetail[0].report.sqmScore}}">{{historyProgressDetail[0].report.sqmScore}}</meter>
+	                    		</td>
+	                		</tr>
+	                		
+	                		<tr ng-if="historyProgressDetail[0].svvNumber">
+	                    		<td>
+	                    			<h4>Software Verification & Validation</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].svvNumber - historyProgressDetail[0].svvWrong}}/{{historyProgressDetail[0].svvNumber}}</h4>
+	                    		</td>
+	                    		<td>
+	                    			<h4>{{historyProgressDetail[0].report.svvScore}}%</h4>
+	                    		</td>
+	                    		<td>
+	                    			<meter style="height: 18px; width: 160px;" low="60" high="80" max="100" optimum="100" value="{{historyProgressDetail[0].report.svvScore}}">{{historyProgressDetail[0].report.svvScore}}</meter>
+	                    		</td>
+	                		</tr>
+	                	</tbody>
+	            	</table>
+	                
+	            </div>
+
+				<div class="clearfix"></div>
+				<hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">							
+					<md-button class="md-raised md-warn" ng-href="#/history">Return</md-button>					
+				</div><!-- /row -->	
+				
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+	<div  class="modal fade" id="changeHstr" role="dialogue" style="z-index:0">
+		<div class="modal-dialogue" style="padding-top:180px; padding-left:320px; padding-right:320px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4>Change Progress Chart Setting</h4>
+				</div>
+				<div class="modal-body" style="display:block;">
+				<!-- Popup Div Starts Here -->
+					<label for="settings"><strong>Number of historical scores on progress chart</strong><br></label>
+					<select ng-model="numbers" style="width:80px;" convert-to-number>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select><br>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" data-dismiss="modal" ng-click="init(numbers)" style="margin-right:270px">Save
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		</div>
+	</div>	<!-- /container -->	

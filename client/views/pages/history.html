@@ -1,0 +1,134 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/myaccount">Dashboard</a></li>
+			<li class="active">History</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+
+				<header class="page-header">
+					<h1 class="page-title">Exam & Practice History</span></h1>
+				</header>
+				
+				<div class="form-group">			
+					<table>
+						<tr valign="middle">							
+							<td><label style="margin-right: 5px;">Sort By</label></td>
+
+							<td>								
+								<select id="sort" ng-model="sor" class="form-control">				
+									<option value="date">Time</option>					
+									<option value="mode">Mode</option>
+									<option value="score">Score</option>
+								</select>
+							</td>							
+						</tr>
+					</table>
+				</div>
+				
+
+				<div class="col-md-12" id="db-data-list">
+					
+					<loading></loading>
+
+					<div class="panel panel-default" ng-repeat="history in partialHistory | orderBy:sor | filter:fil">
+						<div class="panel-body text-center">
+							
+							<div class="col-sm-2">
+								<label>Date</label>
+								<p class="db-data">{{history.date | date: 'MM-dd-yyyy'}}</p>
+							</div>
+
+							<div class="col-sm-2">
+								<label>Time</label>
+								<p class="db-data">{{history.date | date: 'HH:mm:ss'}}</p>
+							</div>
+
+							<div class="col-sm-2">
+								<label>Mode</label><br>
+								<p class="db-data">{{history.mode}}</p>
+							</div>
+
+							<div class="col-sm-2">
+								<label>Score</label><br>
+								<p class="db-data">{{history.score}}% ({{history.total - history.report.wrong.length}}/{{history.total}})</p>
+							</div>
+
+							<div class="col-sm-2">
+								<label></label><br>
+								<p class="db-data"><meter low="60" high="80" max="100" optimum="100" value="{{history.score}}">{{history.score}}</meter></p>
+							</div>
+						
+							<div class="col-sm-2">
+								<label>Details</label>
+								<p><md-button class="md-icon-button md-primary" title="View Chart" aria-label="View" ng-click="detail(history.date)">
+	       							<i class="fa fa-line-chart"></i>
+	   							</md-button>
+	   							<md-button class="md-icon-button md-warn" title="View Details" aria-label="View" ng-click="detailProgress(history.date)">
+	       							<i class="fa fa-external-link"></i>
+	   							</md-button>
+	   							</p>
+							</div>
+							
+						</div>
+					</div> <!-- Panel -->
+
+					<h4 align="center" ng-show="partialHistory.length <= 0" style="color:red">
+						No History available in ASQ for you at the moment.
+					</h4>
+
+					<p class="text-center">
+						<pagination 
+							ng-model="currentPage" total-items="allHistory.length"
+							max-size="maxSize"  boundary-links="true"
+							ng-show="partialHistory.length > 0">
+						</pagination>
+					</p>
+
+				</div>
+
+				<div class="clearfix"></div>
+				<hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">							
+					<md-button class="md-raised md-warn" ng-href="#/myaccount">Return</md-button>					
+				</div><!-- /row -->	
+				
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->

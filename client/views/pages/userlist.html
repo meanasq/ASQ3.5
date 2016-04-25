@@ -1,0 +1,132 @@
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container animated fadeIn">
+
+		<ol class="breadcrumb">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/admin">Admin Dashboard</a></li>
+			<li class="active">Manage Users</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+
+				<header class="page-header">
+					<h1 class="page-title">Manage Users</span></h1>
+				</header>
+
+				<div class="form-group">
+					<ng-form name="usersearch">
+					<table>
+						<tr valign="middle">							
+							<td><input id="search" class="form-control" type="text" ng-model="user.search" placeholder="Search User Email ID" ng-required="true"></td>
+							<td>
+								<md-button class="md-fab md-mini md-primary" title="Search" aria-label="Search" ng-click="search(user)" ng-disabled="usersearch.$invalid">
+        							<i class="fa fa-search"></i>
+      							</md-button>
+      						</td>
+						</tr>
+					</table>
+					</ng-form>
+				</div>				
+
+				<div class="col-md-12" data-ng-init="search(user)" id="db-data-list">
+
+					<loading></loading>
+
+					<div class="panel panel-default" ng-repeat="user in partialUsers">
+						<div class="panel-body text-center">							
+							
+							<div class="col-sm-3">
+								<label>Username</label>
+								<p class="db-data">{{user.email}}</p>
+							</div>
+
+							<div class="col-sm-2">
+								<label>First Name</label>
+								<p class="db-data">{{user.firstName}}</p>
+							</div>
+
+							<div class="col-sm-2">
+								<label>Last Name</label><br>
+								<p class="db-data">{{user.lastName}}</p>
+							</div>
+
+							<div class="col-sm-1">
+								<label>Active</label><br>
+								<p class="db-data">{{user.activeIn}}</p>
+							</div>
+
+							<div class="col-sm-2">
+								<label>Expiry Date</label><br>
+								<p class="db-data">{{user.expiryDate}}</p>
+							</div>
+						
+							<div class="col-sm-2">
+								<label>Action</label>
+								<p><md-button class="md-icon-button md-primary" title="Edit" aria-label="Edit" ng-click="editUser(user.email)">
+        							<i class="fa fa-pencil-square-o"></i>
+      							</md-button>
+
+	   							<md-button class="md-icon-button md-warn" title="Delete" aria-label="Delete" ng-click="deleteUser($event, user)">
+        							<i class="fa fa-trash"></i>
+      							</md-button>
+							</div>
+							
+						</div>
+					</div> <!-- Panel -->
+
+					
+					<h4 align="center" ng-show="allUsers.length <= 0" style="color:red">
+						No Records Found For Your Search
+					</h4>
+
+					<p class="text-center">
+						<pagination 
+				   			ng-model="currentPage" total-items="allUsers.length"
+				   			max-size="maxSize"  boundary-links="true">
+				   		</pagination>
+					</p>
+
+				</div>
+
+				<div class="clearfix"></div>
+				<hr>
+
+				<div class="col-md-12" layout-align="center" layout="row">							
+					<md-button class="md-raised md-warn" ng-href="#/admin">Return</md-button>				
+				</div><!-- /row -->				
+				
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-sm-3 sidebar sidebar-right">
+
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#/help">Help</a></li>
+						<li ng-if="currentUser.role=='admin'"><a href="#/admin">Admin Dashboard</a></li>
+						<li><a href="#/profile">Edit Profile</a></li>
+						<li><a href="#/changepassword">Change Password</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<a href="http://itu.edu/" target="_blank"><img src="/images/itu.png"></a>
+				</div>				
+
+				<div class="widget">
+					<a href="#/support"><img src="/images/technical-support.jpg"></a>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->
