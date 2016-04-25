@@ -1,0 +1,177 @@
+ref,subject,description,milestone,owner,owner_full_name,assigned_to,assigned_to_full_name,status,severity,priority,type,is_closed,attachments,external_reference,tags,watchers,voters,created_date,modified_date,finished_date
+8,"On Home page First and last name are separated by comma (,)","Steps:
+1. Login into Big Bang ASQ 2.0
+2. Go to top-right corner of Home page 
+3. First and last name are separated by comma (,)
+
+Expected Result:
+First and Last name must be separated by space
+
+Actual Result:
+First and last name are separated by comma (,)",,akankshagarud,Akanksha Garud,taqdeesayesha,Ayesha Taqdees,Closed,Normal,Normal,Bug,True,0,,,[116950],0,2016-03-06 20:08:28.544598+00:00,2016-04-24 23:43:59.773683+00:00,2016-03-21 23:00:43.782191+00:00
+9,"On Edit Profile page, First name, Last name zipcode and City can contain numbers and special characters","Steps:
+1. Go to Edit Profile page.
+2. Enter numbers and special characters in First name, Last name and City .
+3. Save Profile.
+
+Expected Result:
+User must  prompted an error indicating invalid zipcode and should not save.
+
+Actual Result:
+User can enter numbers and special characters in First name, Last name ,zipcode and City and save it.",,akankshagarud,Akanksha Garud,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Important,Normal,Bug,True,1,,,[116950],0,2016-03-06 20:19:44.231540+00:00,2016-04-24 23:43:43.904785+00:00,2016-04-02 19:56:57.275797+00:00
+10,"On Edit Profile page, User can enter Future Birth-date","Steps:
+1. Go to Edit Profile page.
+2. Enter Future Birth-date.
+3. Save Profile.
+
+Expected Result:
+User must prompted an error for Future Birth-date.
+
+Actual Result:
+User can enter Future Birth-date.",,akankshagarud,Akanksha Garud,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Normal,Normal,Bug,True,0,,,"[112456, 116950]",0,2016-03-06 20:21:00.480807+00:00,2016-04-24 23:43:19.635675+00:00,2016-04-24 19:45:13.285803+00:00
+11,"On change password page, Old Password and New Password can not be same.","Steps:
+1. Go to Change password page.
+2. Enter New password same as Old Password.
+3. Save the password.
+
+Expected Result:
+User must  prompted an error indicating Old and New Password are same.
+
+Actual Result:
+User can enter New Password same as Old Password.",,akankshagarud,Akanksha Garud,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Normal,Normal,Bug,True,0,,,[116950],0,2016-03-06 20:21:56.986116+00:00,2016-04-24 23:42:48.594983+00:00,2016-04-24 19:45:10.584917+00:00
+12,"On Change Password page, User can enter Password less than 6 characters and save it","Steps:
+1. Go to Change Password page.
+2. Enter less than 6 characters.
+3. Save the Password.
+
+Expected Result:
+User must  prompted an error indicating Password must contain at least 6 characters.
+
+Actual Result:
+User can enter Password less than of 6 characters and save it.",,akankshagarud,Akanksha Garud,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Important,Normal,Bug,True,1,,,[116950],0,2016-03-06 20:22:56.783899+00:00,2016-04-24 23:42:29.060010+00:00,2016-04-24 19:45:07.797255+00:00
+13,User can enter Password less than of 6 characters and save it.,"Steps:
+1. Go to Practice Page.
+2. Select any category.
+3. Click on submit button.
+
+Expected Result:
+On Practice page Submit button should be activated
+
+Actual Result:
+On Practice Page Submit button is not working.",,akankshagarud,Akanksha Garud,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Normal,Normal,Bug,True,0,,,[116950],0,2016-03-06 20:25:00.623052+00:00,2016-04-24 23:42:05.059337+00:00,2016-04-24 19:45:05.316466+00:00
+14,"On Register page, user can enter invalid email address.","Steps:
+1. Go to Register page.
+2. Enter invalid Email Address.
+3. Register it.
+
+Expected Result:
+User must prompted an error on entering invalid Email Address.
+
+Actual Result:
+User can enter invalid Email Address and register it.",,akankshagarud,Akanksha Garud,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Important,Normal,Bug,True,1,,,[116950],0,2016-03-06 20:26:02.755986+00:00,2016-04-24 23:41:37.968163+00:00,2016-04-24 19:45:03.097533+00:00
+15,"On Register page, user can enter Future Birth-date.","Steps:
+1. Go to Register page.
+2. Enter Future Birth-date.
+3. Register it.
+
+Expected Result:
+User must prompted an error for Future Birth-date.
+
+Actual Result:
+User can enter Future Birth-date.",,akankshagarud,Akanksha Garud,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Important,Normal,Bug,True,1,,,[116950],0,2016-03-06 20:27:09.814779+00:00,2016-04-24 23:41:19.440118+00:00,2016-04-24 19:45:01.022608+00:00
+16,"On Register page, User can enter Password less than 6 characters","Steps:
+1. Go to Register  page.
+2. Enter less than 6 characters.
+3. Save the Password.
+
+Expected Result:
+User must  prompted an error indicating Password must contain at least 6 characters.
+
+Actual Result:
+User can enter Password less than of 6 characters and save it.",,akankshagarud,Akanksha Garud,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Important,Normal,Bug,True,1,,,[116950],0,2016-03-06 20:28:05.903779+00:00,2016-04-24 23:40:44.161063+00:00,2016-04-24 19:44:56.614116+00:00
+17,"On Register page, user can enter invalid zip-code","Steps:
+1. Go to Register  page.
+2. Enter invalid zip-code.
+3. Register an account.
+
+Expected Result:
+User must prompted an error indicating invalid zip-code.
+
+Actual Result:
+User can enter invalid zip-code and create an account.",,akankshagarud,Akanksha Garud,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Normal,Normal,Bug,True,1,,,[116950],0,2016-03-06 20:28:56.997471+00:00,2016-04-24 23:40:22.067311+00:00,2016-04-24 19:44:52.823514+00:00
+20,User can enter New Password and repeat new password differently and save it,"Steps:
+1. Go to Change password page.
+2. Enter New password same as Old Password.
+3. Save the password.
+
+Expected Result:
+User must prompted an error indicating  New Password and repeat new password are not same and should not save.
+
+Actual Result:
+User can enter New Password and repeat new password differently and save it",,avanigarimella,avani,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Important,Normal,Bug,True,1,,,[116950],0,2016-03-27 22:26:35.657048+00:00,2016-04-24 23:39:16.780636+00:00,2016-04-24 19:44:50.155857+00:00
+21,A user who is not even registered can click on forget password and can receive instructions,"1. Click on Forget password
+2. Enter registered email who is not even registered
+3. Click Reset Password
+
+Expected:
+Error message that the email is not a registered email
+
+Actual :
+The user who is not registered is able to  click on forget password",,avanigarimella,avani,DAYAAD,DIYA WAEL REBHI AYAAD,Closed,Important,Normal,Bug,True,1,,,[116950],0,2016-03-27 22:33:52.776307+00:00,2016-04-24 23:38:03.325713+00:00,2016-04-24 19:44:48.336089+00:00
+22,Timer is moved behind text,"1. Login to application
+2. Click on Exam
+3. Start a exam
+4. Scroll down
+
+Expected:
+ The timer should be in a static place
+
+Actual: 
+The timer is also scrolling and moving behind text",,avanigarimella,avani,taqdeesayesha,Ayesha Taqdees,Closed,Normal,Normal,Bug,True,1,,,[116950],0,2016-03-27 22:38:22.048161+00:00,2016-04-24 23:37:29.807594+00:00,2016-04-24 19:44:44.988476+00:00
+23,"The user name is displayed as ""currentUser.firstName,currentUser.lastName""","1. Login to application
+2. Click on Profile
+
+Expected:
+On the top right corner welcome user name should be displayed
+
+Actual:
+On the top right corner welcome currentUser.firstName,currentUser.lastName is displayed",,avanigarimella,avani,taqdeesayesha,Ayesha Taqdees,Closed,Minor,Normal,Bug,True,1,,,[116950],0,2016-03-27 22:41:16.430239+00:00,2016-04-24 23:36:13.206820+00:00,2016-04-24 19:44:38.184634+00:00
+24,Calendar icon is not working in profile page,"1. Login to application
+2. Go to Profile page
+3. Click on Calendar icon
+
+Expected Result:
+Calendar should be displayed
+
+Actual Result:
+Nothing is happening",,avanigarimella,avani,Varsha,Varsha Reddy Duvvuru,Closed,Normal,Normal,Bug,True,1,,,[116950],0,2016-03-27 22:42:51.475171+00:00,2016-04-24 23:35:37.560806+00:00,2016-04-24 19:43:04.285718+00:00
+25,State drop down not working in profile page,"1. Login to application
+2. Go to Profile page
+3. Click on State Drop down
+
+Expected:
+List of State names should be displayed
+
+Actual:
+Nothing is happening",,avanigarimella,avani,Varsha,Varsha Reddy Duvvuru,Closed,Normal,Normal,Bug,True,1,,,[116950],0,2016-03-27 22:44:13.619762+00:00,2016-04-24 23:33:33.224170+00:00,2016-04-24 19:43:01.330267+00:00
+26,Itu.edu link is not working,"1. Login to application
+2. Click on itu.edu link
+
+Expected:
+The itu homepage should be displayed
+
+Actual:
+Time Remains is displayed",,avanigarimella,avani,Varsha,Varsha Reddy Duvvuru,Closed,Normal,Normal,Bug,True,1,,,[116950],0,2016-03-27 22:46:44.386018+00:00,2016-04-24 23:32:08.329527+00:00,2016-04-24 19:42:58.417495+00:00
+27,Correct Choice while editing a question is not reflecting after saving,"1. Login as Admin
+2. Go to Question Management screen
+3. Select a question and click Edit
+4. Edit the Correct choice of the question and click update
+
+Expected:
+The correct choice should be updated
+
+Actual:
+The correct choice is not updated",,avanigarimella,avani,taqdeesayesha,Ayesha Taqdees,Closed,Important,Normal,Bug,True,2,,,[116950],0,2016-03-27 22:49:10.995320+00:00,2016-04-24 23:32:51.919648+00:00,2016-04-24 19:44:35.156690+00:00
+28,Category Management link is not working,"1. Login as Admin
+2. Click on admin dashboard link
+3. Click on Category management button",,avanigarimella,avani,Varsha,Varsha Reddy Duvvuru,Postponed,Important,Normal,Bug,False,0,,,[123358],0,2016-04-24 23:45:07.117869+00:00,2016-04-24 23:48:51.513143+00:00,
