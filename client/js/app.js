@@ -1930,7 +1930,7 @@ app.controller('examController',
     // Submit when user Exits Exam Page
     $scope.$on("$routeChangeStart", function(event, next, current) {
 
-    	if(current.templateUrl != next.templateUrl)
+    	if(current.templateUrl != next.templateUrl && next.templateUrl != "pages/historydetails.html")
     		$scope.submit();				
     });
 
